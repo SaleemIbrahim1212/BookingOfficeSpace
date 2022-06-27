@@ -3,25 +3,28 @@ import './App.css';
 import React, {useState} from 'react';
 import profilepicture from './genericprofilepciture .webp'
 import logo from './logo.png'
- 
+
+import HomePagePanel from './HomePagePanel.js';
+import MyForm from './MyForm.js';
 function App() {
 
   const [isClicked, setClick] = useState(false)
+
+
   return (
 
 
   <body> 
-    
 
-    <h1> this goes across the page </h1>
+
  
     <div className="split left">
 
       <div className="centered2">
+       <myForm />
+      { !isClicked ? <HomePagePanel /> :  <MyForm />  }
 
-        <img src={logo} alt="Company logo"/>
-        <h2>Welcome User</h2>
-        <button onClick = { () => setClick(!isClicked) } type = "button"> Book a room </button>
+<button onClick = { () => setClick(!isClicked) } type = "button"> {!isClicked ? "Book a room " : "Back to profile"}</button> 
       </div>
     </div>
     
