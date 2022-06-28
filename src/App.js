@@ -9,6 +9,7 @@ import MyForm from './MyForm.js';
 function App() {
 
   const [isClicked, setClick] = useState(false)
+  const [officeSpace, setSpace] = useState([])
 
 
   return (
@@ -21,8 +22,8 @@ function App() {
     <div className="split left">
 
       <div className="centered2">
-       <myForm />
-      { !isClicked ? <HomePagePanel /> :  <MyForm />  }
+    
+      { !isClicked ? <HomePagePanel /> :  <MyForm currdata = {officeSpace} changedata = {setSpace} />  }
 
 <button onClick = { () => setClick(!isClicked) } type = "button"> {!isClicked ? "Book a room " : "Back to profile"}</button> 
       </div>
@@ -40,9 +41,12 @@ function App() {
      : <div className='centered2'> 
         <img src = {profilepicture}/>
         <h2>Rooms booked by user</h2>
-        <p> No office space booked yet, click the book a room button to get started</p>
-
-     
+       { console.log(officeSpace.length)}
+        {officeSpace.length ===0   ? 
+      
+        <p> No office space booked yet, click the book a room button to get started</p>: <p color='green'> You have {officeSpace.length} rooms booked details below</p>
+    
+        }
      
       </div> } 
          </div>

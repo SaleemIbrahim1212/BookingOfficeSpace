@@ -5,6 +5,10 @@ body {
   color: white;
   background-color: black
 }
+p
+{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 .split {
   height: 100%;

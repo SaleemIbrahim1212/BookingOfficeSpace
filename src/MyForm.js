@@ -6,19 +6,21 @@ import Button from 'react-bootstrap/Button';
   import { Form } from 'react-bootstrap';
 
 
- function MyForm ()
+ function MyForm (props)
  {
+
+
      return (
           <Form>
 
 <Form.Group className="mb-3" controlId="First Name">
-    <Form.Control type="text" placeholder="User" />
+    <Form.Control type="text" placeholder="Username" disabled/>
  
  
-    <Form.Control type="email" placeholder="Email" />
+    <Form.Control type="email" placeholder="exampleemail@company.com" disabled />
    
  
-  <Form.Select aria-label="Select available rooms">
+  <Form.Select aria-label="Arooms">
   <option>Which room?</option>
   <option value="Room A1 ">Room A1</option>
   <option value="Room A2">Room A2</option>
@@ -29,11 +31,14 @@ import Button from 'react-bootstrap/Button';
 <Form.Control type="time" name='TimeOfBookedRoom'  />
 <Form.Control type="date" name='DateofBookedRoom'  />
 
-  <Button variant="primary" type="submit" onClick = {() => alert ("All set! See you soon :) ")}>
+  <Button variant="primary" type="button" onClick = {() => props.changedata([...props.currdata, "New space booked"])}>
     Submit
   </Button>
+
+
   </Form.Group>
 </Form>
+
      );
  }
  
