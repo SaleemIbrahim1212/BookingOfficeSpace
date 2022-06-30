@@ -9,6 +9,10 @@ import Button from 'react-bootstrap/Button';
  function MyForm (props)
  {
 
+  const [Room, changeroom] = useState("Select a room")
+  const [Time, changeTime]= useState()
+  const [Date, changeDate] = useState()
+
 
 
      return (
@@ -21,18 +25,41 @@ import Button from 'react-bootstrap/Button';
     <Form.Control type="email" placeholder="exampleemail@company.com" disabled />
    
  
-  <Form.Select aria-label="Arooms">
-  <option>Which room?</option>
+    <Form.Group controlid = "Arooms">
+  <Form.Control
+          as="select"
+          value={Room}
+          onChange={e => {
+
+            changeroom(e.target.value);
+          }}
+        >
+  
   <option value="Room A1 ">Room A1</option>
   <option value="Room A2">Room A2</option>
   <option value="Room A3">Room A3</option>
-</Form.Select>
+  </Form.Control>
+</Form.Group>
  
 
-<Form.Control type="time" name='TimeOfBookedRoom'  />
-<Form.Control type="date" name='DateofBookedRoom'  />
+<Form.Control type="time" name='TimeOfBookedRoom' onChange = {e => {
+    changeTime(e.target.value)
+  }} />
+<Form.Control type="date" name='DateofBookedRoom' onChange = {e => 
+{
+  changeDate(e.target.value)
+}}  />
 
-  <Button variant="primary" type="button" onClick = {() => props.changedata([...props.currdata, {Username: "saleem", Email: 'saleemibramza@gmail.com', Room: 'A1', Time: '2:00pm', Date: "2/2/20222" }]) }>
+  <Button variant="primary" type="button" onClick = {() => props.changedata([
+    
+   
+    
+    ...props.currdata, {Username: "saleem", Email: 'saleemibramza@gmail.com', Room: Room , Time: Time, Date: Date 
+
+
+
+
+}  ]  ) }>
     Submit
   </Button>
 
