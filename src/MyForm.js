@@ -10,6 +10,7 @@ import Button from 'react-bootstrap/Button';
  {
 
 
+
      return (
           <Form>
 
@@ -31,7 +32,7 @@ import Button from 'react-bootstrap/Button';
 <Form.Control type="time" name='TimeOfBookedRoom'  />
 <Form.Control type="date" name='DateofBookedRoom'  />
 
-  <Button variant="primary" type="button" onClick = {() => props.changedata([...props.currdata, "New space booked"])}>
+  <Button variant="primary" type="button" onClick = {() => props.changedata([...props.currdata, {Username: "saleem", Email: 'saleemibramza@gmail.com', Room: 'A1', Time: '2:00pm', Date: "2/2/20222" }]) }>
     Submit
   </Button>
 

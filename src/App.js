@@ -6,10 +6,11 @@ import logo from './logo.png'
 
 import HomePagePanel from './HomePagePanel.js';
 import MyForm from './MyForm.js';
+import MyTable from './TableDisplay.js';
 function App() {
 
   const [isClicked, setClick] = useState(false)
-  const [officeSpace, setSpace] = useState([])
+  const [officeSpace, setSpace] = useState( [ {} ] )
 
 
   return (
@@ -42,10 +43,14 @@ function App() {
         <img src = {profilepicture}/>
         <h2>Rooms booked by user</h2>
        { console.log(officeSpace.length)}
-        {officeSpace.length ===0   ? 
+        {officeSpace.length === 1 ? 
       
-        <p> No office space booked yet, click the book a room button to get started</p>: <p color='green'> You have {officeSpace.length} rooms booked details below</p>
-    
+        <p> No office space booked yet, click the book a room button to get started</p>: <div> <p color='green'> You have {officeSpace.length-1} rooms booked details below</p>
+
+       {officeSpace.map( (office) =>  !(Object.keys(office).length === 0)?  <MyTable Username = {office.Username} Email = {office.Email} Room = {office.Room} Time = {office.Time} Date = {office.Date} /> : <></>)}
+       
+        </div>
+      
         }
      
       </div> } 
@@ -56,3 +61,4 @@ function App() {
 }
 
 export default App;
+ 
